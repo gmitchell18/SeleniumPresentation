@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=1024, user-scalable=no">
+
+  <title>Selenium Presentation</title>
+
+  <!-- Required stylesheet -->
+  <link rel="stylesheet" media="screen" href="core/deck.core.css">
+
+  <!-- Extension CSS files go here. Remove or add as needed. -->
+  <link rel="stylesheet" media="screen" href="extensions/goto/deck.goto.css">
+  <link rel="stylesheet" media="screen" href="extensions/menu/deck.menu.css">
+  <link rel="stylesheet" media="screen" href="extensions/navigation/deck.navigation.css">
+  <link rel="stylesheet" media="screen" href="extensions/status/deck.status.css">
+  <link rel="stylesheet" media="screen" href="extensions/scale/deck.scale.css">
+
+  <!-- Style theme. More available in /themes/style/ or create your own. -->
+  <link rel="stylesheet" media="screen" href="themes/style/web-2.0.css">
+
+  <!-- Transition theme. More available in /themes/transition/ or create your own. -->
+  <link rel="stylesheet" media="screen" href="themes/transition/horizontal-slide.css">
+
+  <!-- Basic black and white print styles -->
+  <link rel="stylesheet" media="print" href="core/print.css">
+
+  <!-- Required Modernizr file -->
+  <script src="modernizr.custom.js"></script>
+</head>
+<body>
+  <div class="deck-container">
+
+    <section class="slide" id="title-slide">
+      <h1>Automated Testing with Selenium</h1>
+    </section>
+
+    <section class="slide" id="about-selenium">
+	<img src="SeleniumLogo.png" alt="Selenium" align="right">
+      <h2>What is Selenium</h2>
+		<ul>
+			<li class="slide" id="about1">
+				<h3>Selenium is a portable software testing framework for web applications</h3>
+				<ul>
+					<li>Provides a record/playback tool for authoring tests without learning a test scripting languages</li>
+					<li>Provides a test domain-specific language to write tests in a number of popular programming languages</li>
+				</ul>
+			</li>
+			<li class="slide" id="about2">
+				<h3>Selenium Consists of four major components</h3>
+				<ul>
+					<li>Selenium IDE</li>
+					<li>Selenium Web Driver API</li>
+					<li>Selenium Remote Control</li>
+					<li>Selenium Grid</li>
+				</ul>
+			</li>
+		</ul>
+    </section>
+	
+	<section class="slide" id="components">
+      <h2>Components</h2>
+	  <ul>
+	  <li class="slide" id="comp1"><h3>Selenium IDE</h3>
+		<p>Integrated Development environment for Selenium Scripts</p>
+		<p>Firefox-only extension that allows for record and playbacks of tests</p>
+	  </li>
+	  <li class="slide" id="comp2"><h3>Selenium Web Driver</h3>
+		<p>Drives browser natively</p>
+	  </li>
+	  <li class="slide" id="comp3"><h3>Selenium Remote Control</h3>
+		<p>Client/Server system that allows you to control browser through code</p>
+	  </li>
+	  <li class="slide" id="comp4"><h3>Selenium Grid</h3>
+		<p>Runs test on many servers at the same time</p>
+	  </li>
+	  </ul>
+    </section>
+	
+	<section class="slide" id="benefits">
+		<h2>Benefits</h2>
+		<ul>
+		<li class="slide" id="benefits1">Runs on almost every operating system</li>
+		<li class="slide" id="benefits2">Open source testing tool</li>
+		<li class="slide" id="benefits3">Supports multiple languages such as Java, Python, Perl, Ruby, PHP, .NET (C#)</li>
+		<li class="slide" id="benefits4">Language used for building the test scripts are not coupled to the language that the application is using</li>
+		<li class="slide" id="benefits5">Supports a range of browsers</li>
+		<li class="slide" id="benefits6">Provides support for integration with open source frameworks</li>
+		<li class="slide" id="benefits7">Allows for the execution of simultaneous tests leveraging various browsers on various machines</li>
+		</ul>
+	</section>
+	
+	<section class="slide" id="drivers">
+      <h1>Drivers</h1>
+    </section>
+
+	<section class="slide" id="firefox">
+      <h2>Firefox</h2>
+	  <ul>
+	  <li class="slide" id="firefox1"><h3>Included in selenium-standalone.jar</h3></li>
+	  <li class="slide" id="firefox2"><h3>Comes in the form of an XPI (firefox extension)<h3></li>
+	  <li class="slide" id="firefox3"><h3>Faster than IE Driver</h3></li>
+	  </ul>
+    </section>
+	
+	<section class="slide" id="chrome">
+      <h2>Chrome</h2>
+	  <ul>
+		<li class="slide" id="chrome1"><h3>Standalone server which implements WebDriver's wire protocol</h3></li>
+		<li class="slide" id="chrome2"><h3>Requires Chrome is installed in default location</h3></li>
+	  </ul>
+    </section>
+	
+	<section class="slide" id="ie">
+      <h2>Internet Explorer</h2>
+	  <ul>
+		<li class="slide" id="ie1"><h3>Standalone server that implements WebDriver's wire protocol</h3></li>
+		<li class="slide" id="ie2"><h3>Download IEDriverServer</h3></li>
+		<li class="slide" id="ie3"><h3>Works with IE 6 - 10</h3></li>
+		<li class="slide" id="ie4"><h3>Only runs on Windows</h3></li>
+	  </ul>
+    </section>
+	
+	<section class="slide" id="other-drivers">
+      <h2>Other Drivers</h2>
+	  <h3>Selenium also supports </h3>
+	  <ul>
+		<li><h4>HTML</h4>
+			<p>Fastest implementation of Selenium WebDriver</p>
+			<p>Major Disadvantage: does not test how the major web browsers will handle this application</p>
+		</li>
+		<li><h4>Safari<h4></li>
+		<li><h4>Opera<h4></li>
+	  </ul>
+    </section>
+	
+	<section class="slide" id="writing-a-test">
+      <h2>Writing a Test</h2>
+	  <pre><code>
+// Import necessary Java classes
+import java.util.List;
+
+// Import necessary Selenium classes
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.firefox.FirefoxDriver;</code></pre>
+
+	</section>
+	<section class="slide" id="writing-a-test2">
+	<h2>continued...</h2>
+	<pre><code>
+// Give the Test class a descriptive name, so when it is bundled as part of a test suite (Java package), it is easy to determine what the test verifies
+public class TestGoogleSuggestFirefox {
+// Implemented in the main method. It could also be implemented as a JUnit class. 
+    public static void main(String[] args) throws Exception {
+
+        // The Firefox driver supports javascript 
+        WebDriver driver = new FirefoxDriver();
+        
+        // Go to the Google Suggest home page
+        driver.get("http://www.google.com/webhp?complete=1&hl=en");
+        
+        // Enter the query string "Cheese"
+        WebElement query = driver.findElement(By.name("q"));
+        query.sendKeys("Cheese");
+
+        // Sleep until the div we want is visible or 5 seconds is over
+        long end = System.currentTimeMillis() + 5000;
+        while (System.currentTimeMillis() < end) {
+            WebElement resultsDiv = driver.findElement(By.className("gssb_e"));
+
+            // Suggestions should be displayed in a drop down
+            if (resultsDiv.isDisplayed()) {
+              break;
+            }
+        } </code></pre>
+	</section>
+		
+	<section class="slide" id="writing-a-test3">
+	<h2>continued...</h2>
+	<pre><code>
+
+        // Put all the suggestions into a List
+        List<WebElement> allSuggestions = 
+                        driver.findElements(By.xpath("//td[@class='gssb_a gbqfsf']"));
+        
+        for (WebElement suggestion : allSuggestions) {
+            // Print all the suggestions in the list
+            System.out.println(suggestion.getText());
+        }
+
+        driver.quit();
+    }
+}
+	</code></pre>
+    </section>
+	
+	<section class="slide" id="running">
+      <h2>Running Selenium Test</h2>
+	  <ul>
+		<li class="slide" id="command">Command Line
+		<pre><code>java TestGoogleSuggestFirefox</code></pre>
+		</li>
+		<li class="slide" id="ide">Integrated Development Environment
+			<ul>
+			<li>Scripts can be run through an IDE, such as Eclipse</li>
+			<li>Eclipse includes support for JUnit Test Framework</li>
+			<li>JUnit makes it easy to run tests and view the results, elpased time, and re-run failed tests</li>
+			</ul>
+		</li>
+		<li class="slide" id="build-tool">Build Tool
+			<pre><code>mvn -Dtest=TestGoogleSuggestFirefox test</code></pre>
+			<pre><code>mvn -Dtest=Test*Firefox#test test</code></pre>
+		</li>
+	  </ul>
+    </section>
+	
+	<section class="slide" id="demo">
+      <h1>Code Review and Demonstration</h1>
+    </section>
+	
+	<section class="slide" id="questions">
+      <h1>Questions?</h1>
+    </section>
+	
+	<section class="slide" id="popular-tools">
+      <h2>Popular Tools Integrating with Selenium</h2>
+	  <ul>
+		<li>Jenkins</li>
+		<li>Grails</li>
+		<li>Apache Maven</li>
+		<li>Drupal</li>
+		<li>Silk Central</li>
+		<li>Appium</li>
+	  </ul>
+    </section>
+	
+	<section class="slide" id="more-info">
+      <h2>Fore more info</h2>
+	  <ul>
+	  <li><a href="http://www.seleniumhq.org">Selenium Website</a></li>
+	  <li><a href="https://code.google.com/p/selenium/w/list">Selenium Wiki</a></li>
+	  </ul>
+    </section>
+	
+    <!-- End slides. -->
+
+    <!-- Begin extension snippets. Add or remove as needed. -->
+
+    <!-- deck.navigation snippet -->
+    <div aria-role="navigation">
+      <a href="#" class="deck-prev-link" title="Previous">&#8592;</a>
+      <a href="#" class="deck-next-link" title="Next">&#8594;</a>
+    </div>
+
+    <!-- deck.status snippet -->
+    <p class="deck-status" aria-role="status">
+      <span class="deck-status-current"></span>
+      /
+      <span class="deck-status-total"></span>
+    </p>
+
+    <!-- deck.goto snippet -->
+    <form action="." method="get" class="goto-form">
+      <label for="goto-slide">Go to slide:</label>
+      <input type="text" name="slidenum" id="goto-slide" list="goto-datalist">
+      <datalist id="goto-datalist"></datalist>
+      <input type="submit" value="Go">
+    </form>
+
+    <!-- End extension snippets. -->
+  </div>
+
+<!-- Required JS files. -->
+<script src="jquery.min.js"></script>
+<script src="core/deck.core.js"></script>
+
+<!-- Extension JS files. Add or remove as needed. -->
+<script src="extensions/menu/deck.menu.js"></script>
+<script src="extensions/goto/deck.goto.js"></script>
+<script src="extensions/status/deck.status.js"></script>
+<script src="extensions/navigation/deck.navigation.js"></script>
+<script src="extensions/scale/deck.scale.js"></script>
+
+<!-- Initialize the deck. You can put this in an external file if desired. -->
+<script>
+  $(function() {
+    $.deck('.slide');
+  });
+</script>
+</body>
+</html>

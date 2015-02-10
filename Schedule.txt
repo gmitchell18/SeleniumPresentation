@@ -1,0 +1,34 @@
+Plan:
+30-40minute presentation
+
+12-12:10 setup/introductions
+12:10-12:45ish presentation
+questions after
+
+Presentation
+
+(3min) Overview/About Selenium
+(2min) Selenium Components
+
+(3 min) Benefits
+
+(5min) Drivers
+Firefox
+Chrome
+Internet Explorer
+Other
+
+(5min) Writing a Test
+
+(3min) Running Test
+
+(5-10min) Code Review (J-Unit)
+
+(5-10min) Demonstration
+
+Questions
+
+(1min) Popular tools
+
+more info:
+seleniumhq.org
